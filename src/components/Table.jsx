@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { useTable } from "react-table";
 
 export default class Table extends Component {
     columns = React.useMemo(
