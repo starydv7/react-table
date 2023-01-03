@@ -1,48 +1,23 @@
-import React, { Component } from 'react';
-
-export default class Table extends Component {
-    columns = React.useMemo(
-    () => [
-      {
-        Header: 'Name',
-        columns: [
-          {
-            Header: 'First Name',
-            accessor: 'firstName',
-          },
-          {
-            Header: 'Last Name',
-            accessor: 'lastName',
-          },
-        ],
-      },
-      {
-        Header: 'Info',
-        columns: [
-          {
-            Header: 'Age',
-            accessor: 'age',
-          },
-          {
-            Header: 'Visits',
-            accessor: 'visits',
-          },
-          {
-            Header: 'Status',
-            accessor: 'status',
-          },
-          {
-            Header: 'Profile Progress',
-            accessor: 'progress',
-          },
-        ],
-      },
-    ],
-    []
-    )
-    
+import React from "react";
+import axios from "axios";
+export default class MyList extends React.Component {
+  state = {
+    blogs: [],
+  };
+  componentDidMount() {
+      axios.get(`https://dummyjson.com/users`)
+          .then((response) => {
+      const posts = response.data;
+      this.setState({ posts });
+    });
+  }
   render() {
-    
-    return <Table columns={this.columns} data={this.data} />;
+    return (
+      <ul>
+            {this.state.blogs.map((el, i) => (
+                <li key={el.id}>{el.firstName}</li>
+       ))}
+      </ul>
+    );
   }
 }
