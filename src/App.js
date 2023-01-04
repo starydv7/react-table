@@ -1,11 +1,12 @@
 
 import './App.css';
-import Table from './components/Table';
+import MyList from './components/Table';
+
 
 function App() {
   return (
     <div className="App">
- <Table/>
+     <MyList/>
     </div>
   );
 }
