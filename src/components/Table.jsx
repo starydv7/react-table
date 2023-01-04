@@ -8,16 +8,15 @@ export default class MyList extends React.Component {
       axios.get(`https://dummyjson.com/users`)
           .then((response) => {
       const posts = response.data;
-      this.setState({ posts });
-    });
+       this.setState({ posts });
+              console.log(posts);
+    },[]);
   }
   render() {
     return (
-      <ul>
-            {this.state.blogs.map((el, i) => (
-                <li key={el.id}>{el.firstName}</li>
-       ))}
-      </ul>
-    );
+      <div>
+        <h2>Fetch table data</h2>
+      </div>
+    )
   }
 }
